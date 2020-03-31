@@ -35,16 +35,25 @@ public class SSSelectionSort {
 		return nums;
 	}
 	
-	public static void insertionSortArrayList(ArrayList<String> list) {
+	public static int[] insertionSortArrayList(ArrayList<String> list) {
+		int compare = 0;
+		int assignment = 0;
+		int itteration = 0;
 	    for (int j = 1; j < list.size(); j++) {
 	        String current = list.get(j);
 	        int i = j-1;
-	        while ((i > -1) && ((list.get(i).compareTo(current)) < 0)) {
+	        while ((i > -1) && ((list.get(i).compareTo(current)) > 0)) {
+	        	compare++;
 	            list.set(i+1, list.get(i));
+	            assignment++;
 	            i--;
 	        }
 	        list.set(i+1, current);
+	        itteration++;
 	    }
+	    
+	    int[] nums = {compare, assignment, itteration};
+		return nums;
 	}
 	
 	@Override
